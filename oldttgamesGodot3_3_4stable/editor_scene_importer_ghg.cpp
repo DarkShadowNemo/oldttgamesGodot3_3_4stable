@@ -41,4 +41,54 @@ Error EditorSceneImporterGHG::(String &p_path) {
 	for (int i = 1; i <= 11; i++){
 		float float01 = f->get_float();
 	}
+	uint32_t Size4 = f->get_32();
+	float floatcount1 = f->get_float();
+	uint32_t Type1 = f->get_32();
+	uint32_t typeSize = f->get_32();
+	if (TextureCount == 0){
+		if (MaterialEntrySize1 == 144){
+			for (int i = 1; i <= MaterialCount; i++){
+				uint32_t MaterialEntryListSize1 = f->get_32();
+			}
+		}
+		else if (MaterialEntrySize1 == 148){
+			//Lego Star Wars 1
+			uint32_t EndSize1 = f->get_32();
+			for (int i = 1; i <= MaterialCount; i++){
+				uint32_t MaterialEntryListSize1 = f->get_32();
+			}
+		}
+		else if (MaterialEntrySize1 == 152){
+			//Narnia
+			uint32_t EndSize1 = f->get_32();
+			uint32_t EndSize2 = f->get_32();
+			for (int i = 1; i <= MaterialCount; i++){
+				uint32_t MaterialEntryListSize1 = f->get_32();
+			}
+		}
+	else if (TextureCount != 0){
+		if (TextureEntrySize1 == 144){
+			for (int i = 1; i <= TextureCount; i++){
+				uint32_t TextureEntryListSize1 = f->get_32();
+			}
+		
+		}
+		else if (TextureEntrySize1 == 148){
+			//Lego Star Wars 1
+			uint32_t EndSize1 = f->get_32();
+			for (int i = 1; i <= TextureCount; i++){
+				uint32_t TextureEntryListSize1 = f->get_32();
+			}
+		}
+		else if (TextureEntrySize1 == 152){
+			//Narnia
+			uint32_t EndSize1 = f->get_32();
+			uint32_t EndSize2 = f->get_32();
+			for (int i = 1; i <= TextureCount; i++){
+				uint32_t TextureEntryListSize1 = f->get_32();
+			}
+		}
+	}
+	
+	
 };
