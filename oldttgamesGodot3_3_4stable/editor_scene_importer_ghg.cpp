@@ -58,6 +58,9 @@ Error EditorSceneImporterGHG::(String &p_path) {
 				for (int i = 1; i<= 288; i++){
 					uint8_t bytes1 = f->get_8();
 				}
+				uint32_t MatFlag1 = f.get_32();
+				if (MatFlag1 == 0){
+				}
 			}				
 			
 		} else if (MaterialEntrySize1 == 148){
@@ -70,6 +73,51 @@ Error EditorSceneImporterGHG::(String &p_path) {
 			for (int i = 1; i <= MaterialCount; i++){
 				for (int i = 1; i<= 288; i++){
 					uint8_t bytes1 = f->get_8();
+				}
+				uint32_t MatFlag1 = f.get_32();
+				if (MatFlag1 == 0){
+					for (int i = 1; i<= 48; i++){
+						uint8_t matpad01 = f->get_8();
+					}
+					uint32_t MatFlag2 = f->get_32();
+					if (MatFlag2 == 61){
+						for (int i = 1; i<= 20; i++){
+							uint8_t matpad02 = f->get_8();
+						}
+						uint32_t numtl_s_next = f.get_32();
+						uint32_t MatFlag3 = f->get_32();
+						if (MatFlag3 == 13){
+							float AmbientRed = f->get_float();
+							float AmbientGreen = f->get_float();
+							float AmbientBlue = f->get_float();
+							float diffuseRed = f->get_float();
+							float diffuseGreen = f->get_float();
+							float diffuseBlue = f->get_float();
+							float fx1 = f->get_float();
+							float fx2 = f->get_float();
+							float fx3 = f->get_float();
+							float fx4 = f->get_float();
+						}
+					} else if (MatFlag2 == 60){
+						for (int i = 1; i<= 24; i++){
+							uint8_t matpad02 = f->get_8();
+						}
+						uint32_t MatFlag3 = f->get_32();
+						if (MatFlag3 == 13){
+							float AmbientRed = f->get_float();
+							float AmbientGreen = f->get_float();
+							float AmbientBlue = f->get_float();
+							float diffuseRed = f->get_float();
+							float diffuseGreen = f->get_float();
+							float diffuseBlue = f->get_float();
+							float fx1 = f->get_float();
+							float fx2 = f->get_float();
+							float fx3 = f->get_float();
+							float fx4 = f->get_float();
+						}
+					}
+				}
+			}
 		
 		} else if (MaterialEntrySize1 == 152){
 			//Narnia
@@ -82,6 +130,11 @@ Error EditorSceneImporterGHG::(String &p_path) {
 			for (int i = 1; i <= MaterialCount; i++){
 				for (int i = 1; i<= 288; i++){
 					uint8_t bytes1 = f->get_8();
+				}
+				uint32_t MatFlag1 = f.get_32();
+				if (MatFlag1 == 0){
+				}
+			}
 		}
 		
 	} else if (TextureCount != 0){
@@ -104,6 +157,33 @@ Error EditorSceneImporterGHG::(String &p_path) {
 				uint32_t size2_ = f->get_32();
 				uint32_t type3 = f->get_32();
 				uint32_t type4 = f->get_32();
+				if (type4 != 0){
+					uint32_t padsize1 = f->get_32();
+					for (int i = 1; i <= padsize1; i++){
+						uint8_t paddbyte1 = f->get_8();
+					}
+					uint8_t textureRumble = f->get_8();
+					uint8_t textureBrightness = f->get_8();
+					uint8_t textureZero = f->get_8();
+					uint8_t textureFlag = f->get_8();
+					uint32_t textureZero1 = f->get_32();
+					uint32_t textureZero2 = f->get_32();
+					uint8_t textureRumble_again = f->get_8();
+					uint8_t textureBrightness_again = f->get_8();
+					uint8_t textureZero_again = f->get_8();
+					uint8_t textureFlag_again = f->get_8();
+				} else if (type4 == 0){
+					uint8_t textureRumble = f->get_8();
+					uint8_t textureBrightness = f->get_8();
+					uint8_t textureZero = f->get_8();
+					uint8_t textureFlag = f->get_8();
+					uint32_t textureZero1 = f->get_32();
+					uint32_t textureZero2 = f->get_32();
+					uint8_t textureRumble_again = f->get_8();
+					uint8_t textureBrightness_again = f->get_8();
+					uint8_t textureZero_again = f->get_8();
+					uint8_t textureFlag_again = f->get_8();
+				}
 			}
 		} else if (TextureEntrySize1 == 148){
 			//Lego Star Wars 1
@@ -126,6 +206,33 @@ Error EditorSceneImporterGHG::(String &p_path) {
 				uint32_t size2_ = f->get_32();
 				uint32_t type3 = f->get_32();
 				uint32_t type4 = f->get_32();
+				if (type4 != 0){
+					uint32_t padsize1 = f->get_32();
+					for (int i = 1; i <= padsize1; i++){
+						uint8_t paddbyte1 = f->get_8();
+					}
+					uint8_t textureRumble = f->get_8();
+					uint8_t textureBrightness = f->get_8();
+					uint8_t textureZero = f->get_8();
+					uint8_t textureFlag = f->get_8();
+					uint32_t textureZero1 = f->get_32();
+					uint32_t textureZero2 = f->get_32();
+					uint8_t textureRumble_again = f->get_8();
+					uint8_t textureBrightness_again = f->get_8();
+					uint8_t textureZero_again = f->get_8();
+					uint8_t textureFlag_again = f->get_8();
+				} else if (type4 == 0){
+					uint8_t textureRumble = f->get_8();
+					uint8_t textureBrightness = f->get_8();
+					uint8_t textureZero = f->get_8();
+					uint8_t textureFlag = f->get_8();
+					uint32_t textureZero1 = f->get_32();
+					uint32_t textureZero2 = f->get_32();
+					uint8_t textureRumble_again = f->get_8();
+					uint8_t textureBrightness_again = f->get_8();
+					uint8_t textureZero_again = f->get_8();
+					uint8_t textureFlag_again = f->get_8();
+				}
 			}
 		} else if (TextureEntrySize1 == 152){
 			//Narnia
@@ -149,6 +256,33 @@ Error EditorSceneImporterGHG::(String &p_path) {
 				uint32_t size2_ = f->get_32();
 				uint32_t type3 = f->get_32();
 				uint32_t type4 = f->get_32();
+				if (type4 != 0){
+					uint32_t padsize1 = f->get_32();
+					for (int i = 1; i <= padsize1; i++){
+						uint8_t paddbyte1 = f->get_8();
+					}
+					uint8_t textureRumble = f->get_8();
+					uint8_t textureBrightness = f->get_8();
+					uint8_t textureZero = f->get_8();
+					uint8_t textureFlag = f->get_8();
+					uint32_t textureZero1 = f->get_32();
+					uint32_t textureZero2 = f->get_32();
+					uint8_t textureRumble_again = f->get_8();
+					uint8_t textureBrightness_again = f->get_8();
+					uint8_t textureZero_again = f->get_8();
+					uint8_t textureFlag_again = f->get_8();
+				} else if (type4 == 0){
+					uint8_t textureRumble = f->get_8();
+					uint8_t textureBrightness = f->get_8();
+					uint8_t textureZero = f->get_8();
+					uint8_t textureFlag = f->get_8();
+					uint32_t textureZero1 = f->get_32();
+					uint32_t textureZero2 = f->get_32();
+					uint8_t textureRumble_again = f->get_8();
+					uint8_t textureBrightness_again = f->get_8();
+					uint8_t textureZero_again = f->get_8();
+					uint8_t textureFlag_again = f->get_8();
+				}
 			}
 		}
 	}
