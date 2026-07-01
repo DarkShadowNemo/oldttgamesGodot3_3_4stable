@@ -1,5 +1,8 @@
 #include "core/os/file_access.h"
 #include "scene/3d/mesh_instance.h"
+#include "scene/3d/bone_attachment.h"
+#include "scene/resources/surface_tool.h"
+#include "scene/main/node.h"
 
 uint32_t EditorSceneImporterGHG::get_import_flags() {
 
@@ -63,6 +66,10 @@ Error EditorSceneImporterGHG::(String &p_path) {
 			for (int i = 1; i <= MaterialCount; i++){
 				uint32_t MaterialEntryListSize1 = f->get_32();
 			}
+			fseek(f, MaterialEntryListSize1,0) = f->seek(MaterialEntryListSize1);
+			for (int i = 1; i <= MaterialCount; i++){
+				for (int i = 1; i<= 288; i++){
+					uint8_t bytes1 = f->get_8();
 		
 		} else if (MaterialEntrySize1 == 152){
 			//Narnia
@@ -71,6 +78,10 @@ Error EditorSceneImporterGHG::(String &p_path) {
 			for (int i = 1; i <= MaterialCount; i++){
 				uint32_t MaterialEntryListSize1 = f->get_32();
 			}
+			fseek(f, MaterialEntryListSize1,0) = f->seek(MaterialEntryListSize1);
+			for (int i = 1; i <= MaterialCount; i++){
+				for (int i = 1; i<= 288; i++){
+					uint8_t bytes1 = f->get_8();
 		}
 		
 	} else if (TextureCount != 0){
@@ -78,12 +89,43 @@ Error EditorSceneImporterGHG::(String &p_path) {
 			for (int i = 1; i <= TextureCount; i++){
 				uint32_t TextureEntryListSize1 = f->get_32();
 			}
-			uint32_t padding1 = f->get_32();
+			fseek(f, TextureEntryListSize1,0) = f->seek(TextureEntryListSize1);
+			for (int i = 1; i <= TextureCount; i++){
+				uint16_t Height = f->get_16();
+				uint16_t type1 = f->get_16();
+				uint16_t Width = f->get_16();
+				uint16_t type2 = f->get_16();
+				uint32_t pitch = f->get_32();
+				uint8_t flag1 = f->get_8();
+				uint8_t flag2 = f->get_8();
+				uint8_t flag3 = f->get_8();
+				uint8_t flag4 = f->get_8();
+				uint32_t size1_ = f->get_32();
+				uint32_t size2_ = f->get_32();
+				uint32_t type3 = f->get_32();
+				uint32_t type4 = f->get_32();
+			}
 		} else if (TextureEntrySize1 == 148){
 			//Lego Star Wars 1
 			uint32_t EndSize1 = f->get_32();
 			for (int i = 1; i <= TextureCount; i++){
 				uint32_t TextureEntryListSize1 = f->get_32();
+			}
+			fseek(f, TextureEntryListSize1,0) = f->seek(TextureEntryListSize1);
+			for (int i = 1; i <= TextureCount; i++){
+				uint16_t Height = f->get_16();
+				uint16_t type1 = f->get_16();
+				uint16_t Width = f->get_16();
+				uint16_t type2 = f->get_16();
+				uint32_t pitch = f->get_32();
+				uint8_t flag1 = f->get_8();
+				uint8_t flag2 = f->get_8();
+				uint8_t flag3 = f->get_8();
+				uint8_t flag4 = f->get_8();
+				uint32_t size1_ = f->get_32();
+				uint32_t size2_ = f->get_32();
+				uint32_t type3 = f->get_32();
+				uint32_t type4 = f->get_32();
 			}
 		} else if (TextureEntrySize1 == 152){
 			//Narnia
@@ -91,6 +133,22 @@ Error EditorSceneImporterGHG::(String &p_path) {
 			uint32_t EndSize2 = f->get_32();
 			for (int i = 1; i <= TextureCount; i++){
 				uint32_t TextureEntryListSize1 = f->get_32();
+			}
+			fseek(f, TextureEntryListSize1,0) = f->seek(TextureEntryListSize1);
+			for (int i = 1; i <= TextureCount; i++){
+				uint16_t Height = f->get_16();
+				uint16_t type1 = f->get_16();
+				uint16_t Width = f->get_16();
+				uint16_t type2 = f->get_16();
+				uint32_t pitch = f->get_32();
+				uint8_t flag1 = f->get_8();
+				uint8_t flag2 = f->get_8();
+				uint8_t flag3 = f->get_8();
+				uint8_t flag4 = f->get_8();
+				uint32_t size1_ = f->get_32();
+				uint32_t size2_ = f->get_32();
+				uint32_t type3 = f->get_32();
+				uint32_t type4 = f->get_32();
 			}
 		}
 	}
