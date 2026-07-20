@@ -60,8 +60,100 @@ Error EditorSceneImporterGHG::(String &p_path) {
 				}
 				uint32_t MatFlag1 = f.get_32();
 				if (MatFlag1 == 0){
+					for (int i = 1; i<= 48; i++){
+						uint8_t matpad01 = f->get_8();
+					}
+					uint32_t MatFlag2 = f->get_32();
+					if (MatFlag2 == 61){
+						for (int i = 1; i<= 20; i++){
+							uint8_t matpad02 = f->get_8();
+						}
+						
+						uint32_t numtl_s_next = f.get_32();
+						uint32_t MatFlag3 = f->get_32();
+						if (MatFlag3 == 19){
+							float AmbientRed = f->get_float();
+							float AmbientGreen = f->get_float();
+							float AmbientBlue = f->get_float();
+							float diffuseRed = f->get_float();
+							float diffuseGreen = f->get_float();
+							float diffuseBlue = f->get_float();
+							float fx1 = f->get_float();
+							float fx2 = f->get_float();
+							float fx3 = f->get_float();
+							float fx4 = f->get_float();
+							float power = f->get_float();
+							float alph = f->get_float();
+							uint32_t texid = f->get_32();
+							uint32_t matid = f->get_32();
+							uint16_t short_int_K = f->get_16();
+							uint8_t char_l = f->get_8();
+							uint8_t uvanmmode = f->get_8();
+							float du = f->get_float();
+							float dv = f->get_float();
+							float su = f->get_float();
+							float sv = f->get_float();
+							uint32_t numtl_s_multi_next = f->get_32();
+							uint32_t char_context = f->get_32();
+							uint8_t fx_id = f->get_8();
+							uint8_t special_id = f->get_8();
+							uint8_t charpad1 = f->get_8();
+							uint8_t charpad2 = f->get_8();
+							uint8_t charpad3 = f->get_8();
+							uint8_t charpad4 = f->get_8();
+							uint8_t charpad5 = f->get_8();
+							uint8_t charpad6 = f->get_8();
+							uint8_t charpad7 = f->get_8();
+							uint8_t charpad8 = f->get_8();
+							uint8_t charpad9 = f->get_8();
+						
+						}
+					} else if (MatFlag2 == 60){
+						for (int i = 1; i<= 24; i++){
+							uint8_t matpad02 = f->get_8();
+						}
+						uint32_t MatFlag3 = f->get_32();
+						if (MatFlag3 == 19){
+							float AmbientRed = f->get_float();
+							float AmbientGreen = f->get_float();
+							float AmbientBlue = f->get_float();
+							float diffuseRed = f->get_float();
+							float diffuseGreen = f->get_float();
+							float diffuseBlue = f->get_float();
+							float fx1 = f->get_float();
+							float fx2 = f->get_float();
+							float fx3 = f->get_float();
+							float fx4 = f->get_float();
+							float power = f->get_float();
+							float alph = f->get_float();
+							uint32_t texid = f->get_32();
+							uint32_t matid = f->get_32();
+							uint16_t short_int_K = f->get_16();
+							uint8_t char_l = f->get_8();
+							uint8_t uvanmmode = f->get_8();
+							float du = f->get_float();
+							float dv = f->get_float();
+							float su = f->get_float();
+							float sv = f->get_float();
+							uint32_t numtl_s_multi_next = f->get_32();
+							uint32_t char_context = f->get_32();
+							uint8_t fx_id = f->get_8();
+							uint8_t special_id = f->get_8();
+							uint8_t charpad1 = f->get_8();
+							uint8_t charpad2 = f->get_8();
+							uint8_t charpad3 = f->get_8();
+							uint8_t charpad4 = f->get_8();
+							uint8_t charpad5 = f->get_8();
+							uint8_t charpad6 = f->get_8();
+							uint8_t charpad7 = f->get_8();
+							uint8_t charpad8 = f->get_8();
+							uint8_t charpad9 = f->get_8();
+						}
+					}
 				}
-			}				
+			}
+				
+				
 			
 		} else if (MaterialEntrySize1 == 148){
 			//Lego Star Wars 1
@@ -84,9 +176,10 @@ Error EditorSceneImporterGHG::(String &p_path) {
 						for (int i = 1; i<= 20; i++){
 							uint8_t matpad02 = f->get_8();
 						}
+						
 						uint32_t numtl_s_next = f.get_32();
 						uint32_t MatFlag3 = f->get_32();
-						if (MatFlag3 == 13){
+						if (MatFlag3 == 19){
 							float AmbientRed = f->get_float();
 							float AmbientGreen = f->get_float();
 							float AmbientBlue = f->get_float();
@@ -97,13 +190,38 @@ Error EditorSceneImporterGHG::(String &p_path) {
 							float fx2 = f->get_float();
 							float fx3 = f->get_float();
 							float fx4 = f->get_float();
+							float power = f->get_float();
+							float alph = f->get_float();
+							uint32_t texid = f->get_32();
+							uint32_t matid = f->get_32();
+							uint16_t short_int_K = f->get_16();
+							uint8_t char_l = f->get_8();
+							uint8_t uvanmmode = f->get_8();
+							float du = f->get_float();
+							float dv = f->get_float();
+							float su = f->get_float();
+							float sv = f->get_float();
+							uint32_t numtl_s_multi_next = f->get_32();
+							uint32_t char_context = f->get_32();
+							uint8_t fx_id = f->get_8();
+							uint8_t special_id = f->get_8();
+							uint8_t charpad1 = f->get_8();
+							uint8_t charpad2 = f->get_8();
+							uint8_t charpad3 = f->get_8();
+							uint8_t charpad4 = f->get_8();
+							uint8_t charpad5 = f->get_8();
+							uint8_t charpad6 = f->get_8();
+							uint8_t charpad7 = f->get_8();
+							uint8_t charpad8 = f->get_8();
+							uint8_t charpad9 = f->get_8();
+						
 						}
 					} else if (MatFlag2 == 60){
 						for (int i = 1; i<= 24; i++){
 							uint8_t matpad02 = f->get_8();
 						}
 						uint32_t MatFlag3 = f->get_32();
-						if (MatFlag3 == 13){
+						if (MatFlag3 == 19){
 							float AmbientRed = f->get_float();
 							float AmbientGreen = f->get_float();
 							float AmbientBlue = f->get_float();
@@ -114,10 +232,35 @@ Error EditorSceneImporterGHG::(String &p_path) {
 							float fx2 = f->get_float();
 							float fx3 = f->get_float();
 							float fx4 = f->get_float();
+							float power = f->get_float();
+							float alph = f->get_float();
+							uint32_t texid = f->get_32();
+							uint32_t matid = f->get_32();
+							uint16_t short_int_K = f->get_16();
+							uint8_t char_l = f->get_8();
+							uint8_t uvanmmode = f->get_8();
+							float du = f->get_float();
+							float dv = f->get_float();
+							float su = f->get_float();
+							float sv = f->get_float();
+							uint32_t numtl_s_multi_next = f->get_32();
+							uint32_t char_context = f->get_32();
+							uint8_t fx_id = f->get_8();
+							uint8_t special_id = f->get_8();
+							uint8_t charpad1 = f->get_8();
+							uint8_t charpad2 = f->get_8();
+							uint8_t charpad3 = f->get_8();
+							uint8_t charpad4 = f->get_8();
+							uint8_t charpad5 = f->get_8();
+							uint8_t charpad6 = f->get_8();
+							uint8_t charpad7 = f->get_8();
+							uint8_t charpad8 = f->get_8();
+							uint8_t charpad9 = f->get_8();
 						}
 					}
 				}
 			}
+			
 		
 		} else if (MaterialEntrySize1 == 152){
 			//Narnia
@@ -133,6 +276,96 @@ Error EditorSceneImporterGHG::(String &p_path) {
 				}
 				uint32_t MatFlag1 = f.get_32();
 				if (MatFlag1 == 0){
+					for (int i = 1; i<= 48; i++){
+						uint8_t matpad01 = f->get_8();
+					}
+					uint32_t MatFlag2 = f->get_32();
+					if (MatFlag2 == 61){
+						for (int i = 1; i<= 20; i++){
+							uint8_t matpad02 = f->get_8();
+						}
+						
+						uint32_t numtl_s_next = f.get_32();
+						uint32_t MatFlag3 = f->get_32();
+						if (MatFlag3 == 19){
+							float AmbientRed = f->get_float();
+							float AmbientGreen = f->get_float();
+							float AmbientBlue = f->get_float();
+							float diffuseRed = f->get_float();
+							float diffuseGreen = f->get_float();
+							float diffuseBlue = f->get_float();
+							float fx1 = f->get_float();
+							float fx2 = f->get_float();
+							float fx3 = f->get_float();
+							float fx4 = f->get_float();
+							float power = f->get_float();
+							float alph = f->get_float();
+							uint32_t texid = f->get_32();
+							uint32_t matid = f->get_32();
+							uint16_t short_int_K = f->get_16();
+							uint8_t char_l = f->get_8();
+							uint8_t uvanmmode = f->get_8();
+							float du = f->get_float();
+							float dv = f->get_float();
+							float su = f->get_float();
+							float sv = f->get_float();
+							uint32_t numtl_s_multi_next = f->get_32();
+							uint32_t char_context = f->get_32();
+							uint8_t fx_id = f->get_8();
+							uint8_t special_id = f->get_8();
+							uint8_t charpad1 = f->get_8();
+							uint8_t charpad2 = f->get_8();
+							uint8_t charpad3 = f->get_8();
+							uint8_t charpad4 = f->get_8();
+							uint8_t charpad5 = f->get_8();
+							uint8_t charpad6 = f->get_8();
+							uint8_t charpad7 = f->get_8();
+							uint8_t charpad8 = f->get_8();
+							uint8_t charpad9 = f->get_8();
+						
+						}
+					} else if (MatFlag2 == 60){
+						for (int i = 1; i<= 24; i++){
+							uint8_t matpad02 = f->get_8();
+						}
+						uint32_t MatFlag3 = f->get_32();
+						if (MatFlag3 == 19){
+							float AmbientRed = f->get_float();
+							float AmbientGreen = f->get_float();
+							float AmbientBlue = f->get_float();
+							float diffuseRed = f->get_float();
+							float diffuseGreen = f->get_float();
+							float diffuseBlue = f->get_float();
+							float fx1 = f->get_float();
+							float fx2 = f->get_float();
+							float fx3 = f->get_float();
+							float fx4 = f->get_float();
+							float power = f->get_float();
+							float alph = f->get_float();
+							uint32_t texid = f->get_32();
+							uint32_t matid = f->get_32();
+							uint16_t short_int_K = f->get_16();
+							uint8_t char_l = f->get_8();
+							uint8_t uvanmmode = f->get_8();
+							float du = f->get_float();
+							float dv = f->get_float();
+							float su = f->get_float();
+							float sv = f->get_float();
+							uint32_t numtl_s_multi_next = f->get_32();
+							uint32_t char_context = f->get_32();
+							uint8_t fx_id = f->get_8();
+							uint8_t special_id = f->get_8();
+							uint8_t charpad1 = f->get_8();
+							uint8_t charpad2 = f->get_8();
+							uint8_t charpad3 = f->get_8();
+							uint8_t charpad4 = f->get_8();
+							uint8_t charpad5 = f->get_8();
+							uint8_t charpad6 = f->get_8();
+							uint8_t charpad7 = f->get_8();
+							uint8_t charpad8 = f->get_8();
+							uint8_t charpad9 = f->get_8();
+						}
+					}
 				}
 			}
 		}
@@ -172,6 +405,18 @@ Error EditorSceneImporterGHG::(String &p_path) {
 					uint8_t textureBrightness_again = f->get_8();
 					uint8_t textureZero_again = f->get_8();
 					uint8_t textureFlag_again = f->get_8();
+					uint8_t type5 = f->get_8();
+					uint8_t value01 = f->get_8();
+					uint16_t nullZero1 = f->get_16();
+					uint32_t bitdepth = f->get_32();
+					uint32_t flg1 = f->get_32();
+					uint32_t flgzero1 = f->get_32();
+					uint32_t flgzero2 = f->get_32();
+					uint32_t flgzero3 = f->get_32();
+					uint32_t flg2 = f->get_32();
+					uint32_t flgzero4 = f->get_32();
+					uint32_t comprHeight = f->get_32();
+					uint32_t comprWidth = f->get_32();
 				} else if (type4 == 0){
 					uint8_t textureRumble = f->get_8();
 					uint8_t textureBrightness = f->get_8();
@@ -183,6 +428,19 @@ Error EditorSceneImporterGHG::(String &p_path) {
 					uint8_t textureBrightness_again = f->get_8();
 					uint8_t textureZero_again = f->get_8();
 					uint8_t textureFlag_again = f->get_8();
+					uint8_t type5 = f->get_8();
+					uint8_t value01 = f->get_8();
+					uint16_t nullZero1 = f->get_16();
+					uint32_t bitdepth = f->get_32();
+					uint32_t flg1 = f->get_32();
+					uint32_t flgzero1 = f->get_32();
+					uint32_t flgzero2 = f->get_32();
+					uint32_t flgzero3 = f->get_32();
+					uint32_t flg2 = f->get_32();
+					uint32_t flgzero4 = f->get_32();
+					uint32_t comprHeight = f->get_32();
+					uint32_t comprWidth = f->get_32();
+					
 				}
 			}
 		} else if (TextureEntrySize1 == 148){
@@ -221,6 +479,18 @@ Error EditorSceneImporterGHG::(String &p_path) {
 					uint8_t textureBrightness_again = f->get_8();
 					uint8_t textureZero_again = f->get_8();
 					uint8_t textureFlag_again = f->get_8();
+					uint8_t type5 = f->get_8();
+					uint8_t value01 = f->get_8();
+					uint16_t nullZero1 = f->get_16();
+					uint32_t bitdepth = f->get_32();
+					uint32_t flg1 = f->get_32();
+					uint32_t flgzero1 = f->get_32();
+					uint32_t flgzero2 = f->get_32();
+					uint32_t flgzero3 = f->get_32();
+					uint32_t flg2 = f->get_32();
+					uint32_t flgzero4 = f->get_32();
+					uint32_t comprHeight = f->get_32();
+					uint32_t comprWidth = f->get_32();
 				} else if (type4 == 0){
 					uint8_t textureRumble = f->get_8();
 					uint8_t textureBrightness = f->get_8();
@@ -232,6 +502,18 @@ Error EditorSceneImporterGHG::(String &p_path) {
 					uint8_t textureBrightness_again = f->get_8();
 					uint8_t textureZero_again = f->get_8();
 					uint8_t textureFlag_again = f->get_8();
+					uint8_t type5 = f->get_8();
+					uint8_t value01 = f->get_8();
+					uint16_t nullZero1 = f->get_16();
+					uint32_t bitdepth = f->get_32();
+					uint32_t flg1 = f->get_32();
+					uint32_t flgzero1 = f->get_32();
+					uint32_t flgzero2 = f->get_32();
+					uint32_t flgzero3 = f->get_32();
+					uint32_t flg2 = f->get_32();
+					uint32_t flgzero4 = f->get_32();
+					uint32_t comprHeight = f->get_32();
+					uint32_t comprWidth = f->get_32();
 				}
 			}
 		} else if (TextureEntrySize1 == 152){
@@ -271,6 +553,18 @@ Error EditorSceneImporterGHG::(String &p_path) {
 					uint8_t textureBrightness_again = f->get_8();
 					uint8_t textureZero_again = f->get_8();
 					uint8_t textureFlag_again = f->get_8();
+					uint8_t type5 = f->get_8();
+					uint8_t value01 = f->get_8();
+					uint16_t nullZero1 = f->get_16();
+					uint32_t bitdepth = f->get_32();
+					uint32_t flg1 = f->get_32();
+					uint32_t flgzero1 = f->get_32();
+					uint32_t flgzero2 = f->get_32();
+					uint32_t flgzero3 = f->get_32();
+					uint32_t flg2 = f->get_32();
+					uint32_t flgzero4 = f->get_32();
+					uint32_t comprHeight = f->get_32();
+					uint32_t comprWidth = f->get_32();
 				} else if (type4 == 0){
 					uint8_t textureRumble = f->get_8();
 					uint8_t textureBrightness = f->get_8();
@@ -282,6 +576,18 @@ Error EditorSceneImporterGHG::(String &p_path) {
 					uint8_t textureBrightness_again = f->get_8();
 					uint8_t textureZero_again = f->get_8();
 					uint8_t textureFlag_again = f->get_8();
+					uint8_t type5 = f->get_8();
+					uint8_t value01 = f->get_8();
+					uint16_t nullZero1 = f->get_16();
+					uint32_t bitdepth = f->get_32();
+					uint32_t flg1 = f->get_32();
+					uint32_t flgzero1 = f->get_32();
+					uint32_t flgzero2 = f->get_32();
+					uint32_t flgzero3 = f->get_32();
+					uint32_t flg2 = f->get_32();
+					uint32_t flgzero4 = f->get_32();
+					uint32_t comprHeight = f->get_32();
+					uint32_t comprWidth = f->get_32();
 				}
 			}
 		}
