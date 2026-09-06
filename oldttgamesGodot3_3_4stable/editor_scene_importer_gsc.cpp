@@ -16,11 +16,31 @@ Error EditorSceneImporterGSC::(String &p_path) {
 	if (!f) {
 		return err;
 	}
-	fseek(f, 0, 0)
-	fseek(f, 0, 2)
-	long filesize = ftell(f)
-	fseek(f, 0, 0)
+	fseek(f, 0, 0) = f->seek(0);
+	fseek(f, 0, 2) = f->seek_end();
+	uint32_t filesize = f->get_position();
+	fseek(f, 0, 0) = f->seek(0);
+	while (f->get_position() < filesize){
+		uint32_t Chunk = f->get_32();
+		if (Chunk == int(808605006)){
+			//NU20
+			uint32_t primtype = f->get_32();
+			if (primtype == int(6)){
+				uint32_t padding01 = f->get_32();
+			} else if (primtype != int(6)){
+				uint32_t primtype_ = f->get_32();
+				uint32_t padding01_ = f->get_32();
+			}
+		} else if (Chunk == int(1279415374)){
+			//NTBL
+			uint32_t NTBL_FileSize = f->get_32();
+			if (NTBL_FileSize == int(16)){
+				uint32_t namedtablelength = f->get_32();
+				uint32_t padding02 = f->get_32();
+			} else if (NTBL_FileSize != (16)){
+				uint32_t namedtablelength_ = f->get_32();
+			}
+		}
+			
 	}
-	
-
 };
