@@ -10,7 +10,7 @@ void EditorSceneImporterGSC::get_extensions(List<String> *r_extensions) {
 
 	r_extensions->push_back("gsc");
 }
-Error EditorSceneImporterGSC::(String &p_path) {
+Error EditorSceneImporterGSC::import_scene(String &p_path) {
 	Error err;
 	FileAccessRef f = FileAccess::open(p_path, FileAccess::READ, &err);
 	if (!f) {
@@ -40,6 +40,16 @@ Error EditorSceneImporterGSC::(String &p_path) {
 			} else if (NTBL_FileSize != (16)){
 				uint32_t namedtablelength_ = f->get_32();
 			}
+		} else if (Chunk == int(810832724)){
+			//TST0
+			uint32_t TST_FileSize = f->get_32();
+			uint32_t TextureCount = f->get_32();
+			uint32_t padding03 = f->get_32();
+			for (int i = 0; i<TextureCount; ++i){
+				uint32_t TextureSize1 = f->get_32();
+				uint32_t TexturePaddingSize1 = f->get_32();
+			}
+				
 		}
 			
 	}
