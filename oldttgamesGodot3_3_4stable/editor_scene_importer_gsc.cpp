@@ -48,6 +48,46 @@ Error EditorSceneImporterGSC::import_scene(String &p_path) {
 			for (int i = 0; i<TextureCount; ++i){
 				uint32_t TextureSize1 = f->get_32();
 				uint32_t TexturePaddingSize1 = f->get_32();
+				if (TexturePaddingSize1 != int(0)){
+					for (int i = 0; i<TexturePaddingSize1; ++i){
+						uint8_t bytes1 = f->get_8();
+					}
+					uint16_t height_ = f->get_16();
+					uint16_t type1 = f->get_16();
+					uint16_t width_ = f->get_16();
+					uint16_t type2 = f->get_16();
+					uint32_t pitch = f->get_32();
+					uint8_t flag1 = f->get_8();
+					uint8_t flag2 = f->get_8();
+					uint8_t flag3 = f->get_8();
+					uint8_t flag4 = f->get_8();
+					uint32_t size1 = f->get_32();
+					uint32_t size2 = f->get_32();
+					uint32_t type3 = f->get_32();
+					uint32_t type4 = f->get_32();
+					if (type4 == int(0)){
+						uint8_t textureRumble = f->get_8();
+						uint8_t textureBrightness = f->get_8();
+						uint8_t null01 = f->get_8();
+						uint8_t flag5 = f->get_8();
+						uint32_t null02 = f->get_32();
+						uint32_t null03 = f->get_32();
+						uint8_t textureRumbleAgain = f->get_8();
+						uint8_t textureBrightnessAgain = f->get_8();
+						uint8_t null01Again = f->get_8();
+						uint8_t flag5Again = f->get_8();
+						uint8_t type5 = f->get_8();
+						uint8_t value01 = f->get_8();
+						uint16_t null04 = f->get_16();
+					} else if (type4 != int(0)){
+						uint32_t padsize01 = f->get_32();
+					}
+				} else if (TexturePaddingSize1 == int(0)){
+					uint32_t pad_01 = f->get_32();
+					uint32_t pad_02 = f->get_32();
+				
+				}
+				
 			}
 				
 		}
