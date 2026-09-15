@@ -332,16 +332,17 @@ Error EditorSceneImporterGSC::import_scene(String &p_path) {
 				
 		} else if (Chunk == int(808473421)){
 			//MS00
-			uint32_t MaterialSet_FileSize = f->get_32();
-			uint32_t MaterialCount = f-get_32();
-			uint32_t padding04 = f->get_32();
+			uint32_t MaterialSet_FileSize = f->get_32();//8
+			uint32_t MaterialCount = f-get_32();//12
+			uint32_t padding04 = f->get_32();//16
 			for (int i = 0; i<MaterialCount; ++i){
 				for (int i = 0; i<288; ++i){
 					uint8_t nullBytes01 = f->get_8();
 				}
-				uint32_t MaterialFlag01 = f->get_32();
-				uint32_t NuRndrStreamResetStream = f->get_32();
-				uint32_t NuRndrStreamFxMPG = f->get_32();
+				uint32_t MaterialFlag01 = f->get_32();//308
+				uint32_t NuRndrStreamResetStream = f->get_32();//312
+				uint32_t NuRndrStreamFxMPG = f->get_32();//316
+				uint32_t NuRndrStreamAlloc = f->get_32();//320
 			}
 				
 		} else if (Chunk == int(16777475)){
