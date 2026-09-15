@@ -102,6 +102,11 @@ Error EditorSceneImporterGSC::import_scene(String &p_path) {
 						uint16_t zero12 = f->get_16();
 						uint16_t zero13 = f->get_16();
 						uint16_t zero14 = f->get_16();
+						if (pallete_offset == int(32896)){
+							//0x8080
+						} else if (pallete_offset == int(32776)){
+							//0x8008
+						}
 					} else if (type4 != int(0)){
 						uint32_t padsize01 = f->get_32();
 						for (int i = 0; i<padsize01; ++i){
@@ -151,6 +156,16 @@ Error EditorSceneImporterGSC::import_scene(String &p_path) {
 							
 						} else if (pallete_offset == int(33792)){
 							
+						} else if (pallete_offset == int(33024)){
+							
+						} else if (pallete_offset == int(33280)){
+							
+						} else if (pallete_offset == int(34816)){
+							
+						} else if (pallete_offset == int(49152)){
+							
+						} else if (pallete_offset == int(33536)){
+							//RGB
 						}
 					}
 				} else if (TexturePaddingSize1 == int(0)){
@@ -206,6 +221,11 @@ Error EditorSceneImporterGSC::import_scene(String &p_path) {
 						uint16_t zero12 = f->get_16();
 						uint16_t zero13 = f->get_16();
 						uint16_t zero14 = f->get_16();
+						if (pallete_offset == int(32896)){
+							//0x8080
+						} else if (pallete_offset == int(32776)){
+							//0x8008
+						}
 					} else if (type4 != int(0)){
 						uint32_t padsize01 = f->get_32();
 						for (int i = 0; i<padsize01; ++i){
@@ -248,13 +268,61 @@ Error EditorSceneImporterGSC::import_scene(String &p_path) {
 						uint16_t zero13 = f->get_16();
 						uint16_t zero14 = f->get_16();
 						if (pallete_offset == int(49152)){
-							
+							//RGBA
+							if (comprHeight == int(256) and comprWidth == int(256)){
+								for (int i = 0; i<comprWidth*comprHeight; ++i){
+									uint8_t r1 = f->get_8();
+									uint8_t g1 = f->get_8();
+									uint8_t b1 = f->get_8();
+									uint8_t a1 = f->get_8();
+								}
+							}
 						} else if (pallete_offset == int(40960)){
+							//RGBA
+							if (comprHeight == int(256) and comprWidth == int(128)){
+								for (int i = 0; i<comprWidth*comprHeight; ++i){
+									uint8_t r1 = f->get_8();
+									uint8_t g1 = f->get_8();
+									uint8_t b1 = f->get_8();
+									uint8_t a1 = f->get_8();
+								}
+							} else if (comprHeight == int(128) and comprWidth == int(256)){
+								for (int i = 0; i<comprWidth*comprHeight; ++i){
+									uint8_t r1 = f->get_8();
+									uint8_t g1 = f->get_8();
+									uint8_t b1 = f->get_8();
+									uint8_t a1 = f->get_8();
+								}
+							}
 							
 						} else if (pallete_offset == int(36864)){
+							//RGBA
+							if (comprHeight == int(128) and comprWidth == int(128)){
+								for (int i = 0; i<comprWidth*comprHeight; ++i){
+									uint8_t r1 = f->get_8();
+									uint8_t g1 = f->get_8();
+									uint8_t b1 = f->get_8();
+									uint8_t a1 = f->get_8();
+								}
+							}
 							
 						} else if (pallete_offset == int(33792)){
 							
+						} else if (pallete_offset == int(33024)){
+							
+						} else if (pallete_offset == int(33280)){
+							
+						} else if (pallete_offset == int(34816)){
+							//RGBA
+						} else if (pallete_offset == int(33536)){
+							//RGB
+							if (comprHeight == int(64) and comprWidth == int(64)){
+								for (int i = 0; i<comprWidth*comprHeight; ++i){
+									uint8_t r1 = f->get_8();
+									uint8_t g1 = f->get_8();
+									uint8_t b1 = f->get_8();
+								}
+							}
 						}
 					}
 				
@@ -267,6 +335,17 @@ Error EditorSceneImporterGSC::import_scene(String &p_path) {
 			uint32_t MaterialSet_FileSize = f->get_32();
 			uint32_t MaterialCount = f-get_32();
 			uint32_t padding04 = f->get_32();
+			for (int i = 0; i<MaterialCount; ++i){
+				for (int i = 0; i<288; ++i){
+					uint8_t nullBytes01 = f->get_8();
+				}
+				uint32_t MaterialFlag01 = f->get_32();
+				uint32_t NuRndrStreamResetStream = f->get_32();
+				uint32_t NuRndrStreamFxMPG = f->get_32();
+			}
+				
+		} else if (Chunk == int(16777475)){
+			//0x030100010380XX6C
 		}
 			
 	}
