@@ -341,8 +341,7 @@ Error EditorSceneImporterGSC::import_scene(String &p_path) {
 				}
 				uint32_t MaterialFlag01 = f->get_32();//308
 				uint32_t NuRndrStreamResetStream = f->get_32();//312
-				uint32_t NuRndrStreamFxMPG = f->get_32();//316
-				uint32_t NuRndrStreamAlloc = f->get_32();//320
+				uint32_t NuRndrStreamResetStreams = f->get_32();//316
 			}
 				
 		} else if (Chunk == int(16777475)){
